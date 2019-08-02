@@ -20,15 +20,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/src.zip!/java/util/LinkedHashMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_06_linked/LRULinked.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
@@ -59,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/src/_07_Linked/LinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="348">
-              <caret line="204" column="27" lean-forward="true" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
+              <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -132,6 +123,7 @@
         <option value="$PROJECT_DIR$/src/_06_linked/Palindrome.java" />
         <option value="$PROJECT_DIR$/src/_06_linked/Test.java" />
         <option value="$PROJECT_DIR$/src/_07_Linked/LinkedList.java" />
+        <option value="$PROJECT_DIR$/.gitingnore" />
       </list>
     </option>
   </component>
@@ -351,7 +343,14 @@
     <entry file="file://$PROJECT_DIR$/src/_07_Linked/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
-          <caret line="204" column="27" lean-forward="true" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
+          <caret line="204" column="27" selection-start-line="204" selection-start-column="27" selection-end-line="204" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitingnore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
