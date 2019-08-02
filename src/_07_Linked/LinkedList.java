@@ -68,6 +68,22 @@ public class LinkedList {
             deleteNode = deleteNode.next;
         }
         System.out.println("------deleteNode------");
+        System.out.println("------getMiddleNode------");
+        Node node6 = new Node(1);
+        Node cur6 = node6;
+        for (int i = 2; i < 10; i++) {
+            Node temp = new Node(i);
+            cur6.next = temp;
+            cur6 = temp;
+        }
+        Node middleNode = linked.getMiddleNode(node6);
+        if (middleNode != null) {
+            System.out.println("middleNode=" + middleNode.value);
+        } else {
+            System.out.println("middleNode=null");
+        }
+
+        System.out.println("------getMiddleNode------");
     }
 
     /**
@@ -193,7 +209,7 @@ public class LinkedList {
     }
 
     /**
-     * 求链表的中间节点
+     * 5.求链表的中间节点
      * <p>
      * LeetCode 876
      *
@@ -201,7 +217,14 @@ public class LinkedList {
      * @return
      */
     public Node getMiddleNode(Node list) {
-        return list;
+        if (list == null) return null;
+        Node fast = list;
+        Node slow = list;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
     }
 
     static class Node {
