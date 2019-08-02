@@ -34,15 +34,15 @@ public class LinkedList {
         System.out.println("------combine------");
         Node node3 = new Node(1);
         Node cur3 = node3;
-        for (int i = 2; i < 11; i += 2) {
+        for (int i = 3; i < 11; i += 2) {
             Node temp = new Node(i);
             cur3.next = temp;
             cur3 = temp;
         }
 
-        Node node4 = new Node(1);
+        Node node4 = new Node(2);
         Node cur4 = node4;
-        for (int i = 2; i < 12; i += 3) {
+        for (int i = 4; i < 12; i += 2) {
             Node temp = new Node(i);
             cur4.next = temp;
             cur4 = temp;
@@ -53,6 +53,21 @@ public class LinkedList {
             combine = combine.next;
         }
         System.out.println("------combine------");
+        System.out.println("------deleteNode------");
+        Node node5 = new Node(1);
+        Node cur5 = node5;
+        for (int i = 2; i < 10; i++) {
+            Node temp = new Node(i);
+            cur5.next = temp;
+            cur5 = temp;
+        }
+
+        Node deleteNode = linked.deleteNode(node5, 5);
+        while (deleteNode != null) {
+            System.out.println(deleteNode.value);
+            deleteNode = deleteNode.next;
+        }
+        System.out.println("------deleteNode------");
     }
 
     /**
@@ -125,13 +140,13 @@ public class LinkedList {
         Node cur = head;
         while (cur1 != null && cur2 != null) {
             if (cur1.value < cur2.value) {
-                cur.next = cur1.next;
-                cur1 = cur1.next;
+                cur.next = cur1;
                 cur = cur1;
+                cur1 = cur1.next;
             } else {
-                cur.next = cur2.next;
-                cur2 = cur2.next;
+                cur.next = cur2;
                 cur = cur2;
+                cur2 = cur2.next;
             }
         }
 
@@ -153,22 +168,27 @@ public class LinkedList {
      * @return
      */
     public Node deleteNode(Node list, int index) {
-        if(list == null || index <= 0) return null;
+        if (list == null || index <= 0) return null;
         Node cur = list;
-        Node pre = list;
-        int count = 1;
-        while (cur != null){
+        int count = 0;
+        while (cur != null) {
             cur = cur.next;
             count++;
-            if (count == index)break;
+            if (count == index) break;
         }
 
-        if (count == index){
-            return list;
-        }else if (count < index){
+        if (count < index) {
             return null;
         }
 
+        if (cur == null) return list.next;
+
+        Node temp = list;
+        while (cur.next != null) {
+            temp = temp.next;
+            cur = cur.next;
+        }
+        temp.next = temp.next.next;
         return list;
     }
 
