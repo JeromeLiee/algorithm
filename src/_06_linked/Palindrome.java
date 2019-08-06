@@ -41,7 +41,7 @@ public class Palindrome {
         return true;
     }
 
-    class Node {
+    static class Node {
         Node next;
         int value;
 
