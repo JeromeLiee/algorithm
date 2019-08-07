@@ -88,7 +88,7 @@ public class StackPractice {
     }
 
     /**
-     * 比较含退格的字符串
+     * 2. 比较含退格的字符串
      * <p>
      * LeetCode 844
      * <p>
@@ -170,7 +170,7 @@ public class StackPractice {
     }
 
     /**
-     * 基本计算器
+     * 3. 基本计算器
      * <p>
      * LeetCode 224
      * <p>
@@ -203,7 +203,7 @@ public class StackPractice {
     }
 
     /**
-     * 下一个更大元素
+     * 4. 下一个更大元素
      * <p>
      * LeetCode 496
      * <p>
