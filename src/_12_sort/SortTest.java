@@ -6,9 +6,10 @@ public class SortTest {
 
     public static void main(String[] args) {
         SortTest sortTest = new SortTest();
-        int[] arr = {3, 2, 5, 8, 4, 1, 6, 7};
-//        int[] arr = {3, 1, 6, 4, 5, 2};
-        sortTest.mergeSort(arr);
+//        int[] arr = {3, 2, 5, 8, 4, 1, 6, 7};
+        int[] arr = {3, 1, 6, 4, 5, 2};
+//        sortTest.mergeSort(arr);
+        sortTest.quickSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -109,6 +110,7 @@ public class SortTest {
     }
 
     /**
+     * 快速排序
      * 递推公式：
      * quick_sort(p…r) = quick_sort(p…q-1) + quick_sort(q+1, r)
      * <p>
@@ -127,10 +129,49 @@ public class SortTest {
      * quick_sort_c(A, p, q-1)
      * quick_sort_c(A, q+1, r)
      * }
+     * <p>
+     * // 原地分区函数
+     * partition(A, p, r) {
+     * pivot := A[r]
+     * i := p
+     * for j := p to r-1 do {
+     * if A[j] < pivot {
+     * swap A[i] with A[j]
+     * i := i+1
+     * }
+     * }
+     * swap A[i] with A[r]
+     * return i
      *
      * @param a
      */
     public void quickSort(int[] a) {
+        realQuickSort(a, 0, a.length - 1);
+    }
 
+    private void realQuickSort(int[] a, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int pivot = partition(a, start, end);
+        realQuickSort(a, start, pivot-1);
+        realQuickSort(a, pivot + 1, end);
+    }
+
+    private int partition(int[] a, int start, int end) {
+        int pivotValue = a[end];
+        int i = start;
+        int j = start;
+        for (; j < end; j++) {
+            if (a[j] < pivotValue) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                i++;
+            }
+        }
+        a[j] = a[i];
+        a[i] = pivotValue;
+        return i;
     }
 }
