@@ -11,6 +11,10 @@ public class SortTest {
 //        sortTest.mergeSort(arr);
         sortTest.quickSort(arr);
         System.out.println(Arrays.toString(arr));
+        System.out.println("------------------");
+//        int[] arr2 = {3, 2, 1, 5, 6, 4};
+        int[] arr2 = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+        System.out.println(sortTest.findKthLargest(arr2, 4));
     }
 
     /**
@@ -154,7 +158,7 @@ public class SortTest {
             return;
         }
         int pivot = partition(a, start, end);
-        realQuickSort(a, start, pivot-1);
+        realQuickSort(a, start, pivot - 1);
         realQuickSort(a, pivot + 1, end);
     }
 
@@ -173,5 +177,49 @@ public class SortTest {
         a[j] = a[i];
         a[i] = pivotValue;
         return i;
+    }
+
+    /**
+     * 数组中的第K个最大元素
+     * <p>
+     * LeetCode 215
+     * <p>
+     * 在未排序的数组中找到第 k 个最大的元素。请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+     * <p>
+     * 示例 1:
+     * 输入: [3,2,1,5,6,4] 和 k = 2
+     * 输出: 5
+     * <p>
+     * 示例 2:
+     * 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4
+     * 输出: 4
+     * <p>
+     * 说明:
+     * 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
+     */
+    public int findKthLargest(int[] nums, int k) {
+        return nums[partitionArr(nums, 0, nums.length - 1, nums.length + 1 - k)];
+    }
+
+    private int partitionArr(int[] a, int start, int end, int k) {
+        int pivotValue = a[end];
+        int i = start;
+        int j = start;
+        for (; j < end; j++) {
+            if (a[j] < pivotValue) {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+                i++;
+            }
+        }
+        a[j] = a[i];
+        a[i] = pivotValue;
+        if (i + 1 == k) return i;
+        if (i + 1 < k) {
+            return partitionArr(a, i + 1, end, k);
+        } else {
+            return partitionArr(a, start, i - 1, k);
+        }
     }
 }
