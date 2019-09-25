@@ -1,7 +1,9 @@
 package _23_tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class TreeTest {
     public static void main(String[] args) {
@@ -83,12 +85,34 @@ public class TreeTest {
     /**
      * 二叉树的层次遍历
      * leetcode 102
+     * <p>
+     * 广度优先遍历
      *
      * @param root
      * @return
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
-        return null;
+        List<List<Integer>> levelList = new ArrayList<>();
+        if (root == null) return levelList;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int level = 0;
+        while (!queue.isEmpty()) {
+            levelList.add(new ArrayList<>());
+            int curLevelLength = queue.size();
+            for (int i = 0; i < curLevelLength; i++) {
+                TreeNode node = queue.remove();
+                levelList.get(level).add(node.val);
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            level++;
+        }
+        return levelList;
     }
 
     public static class TreeNode {
