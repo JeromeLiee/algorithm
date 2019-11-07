@@ -104,7 +104,7 @@ public class TreeTest {
 
     /**
      * 二叉树的最大深度
-     *
+     * <p>
      * LeetCode 104
      *
      * @param root
@@ -131,6 +131,21 @@ public class TreeTest {
         realInOrderTraversal(list, root.left);
         list.add(root.val);
         realInOrderTraversal(list, root.right);
+    }
+
+    /**
+     * 验证二叉搜索树
+     * <p>
+     * LeetCode 98
+     * <p>
+     * 给定一个二叉树，判断其是否是一个有效的二叉搜索树
+     *
+     * @param root
+     * @return
+     */
+    public boolean isValidBST(TreeNode root) {
+
+        return false;
     }
 
     public static class TreeNode {
