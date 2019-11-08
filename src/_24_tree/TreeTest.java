@@ -135,6 +135,13 @@ public class TreeTest {
         return Math.max(maxDepth(root.right) + 1, maxDepth(root.left) + 1);
     }
 
+    public int maxDepth2(TreeNode root) {
+        if (root == null) return 0;
+        int leftMaxDepth = maxDepth2(root.left);
+        int rightMaxDepth = maxDepth2(root.right);
+        return Math.max(leftMaxDepth, rightMaxDepth) + 1;
+    }
+
     /**
      * 二叉树中序遍历
      *
@@ -165,8 +172,16 @@ public class TreeTest {
      * @return
      */
     public boolean isValidBST(TreeNode root) {
+        return isValidBSTHelper(root, null, null);
+    }
 
-        return false;
+    private boolean isValidBSTHelper(TreeNode node, Integer min, Integer max) {
+        if (node == null) return true;
+        if (max != null && node.val >= max) return false;
+        if (min != null && node.val <= min) return false;
+        boolean leftIsValidBST = isValidBSTHelper(node.left, min, node.val);
+        boolean rightIsValidBST = isValidBSTHelper(node.right, node.val, max);
+        return leftIsValidBST & rightIsValidBST;
     }
 
     public static class TreeNode {
@@ -179,3 +194,18 @@ public class TreeTest {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
