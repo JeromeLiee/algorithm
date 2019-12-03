@@ -13,7 +13,7 @@ public class RecursionTest {
     }
 
     /**
-     * 爬楼梯
+     * 1. 爬楼梯
      * <p>
      * LeetCode 70
      * <p>

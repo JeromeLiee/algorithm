@@ -11,7 +11,7 @@ public class SearchTest {
     }
 
     /**
-     * 二分查找，循环的实现方式
+     * 1.1 二分查找，循环的实现方式
      *
      * @param arr
      * @param value
@@ -34,7 +34,7 @@ public class SearchTest {
     }
 
     /**
-     * 二分查找，递归的实现方式
+     * 1.2 二分查找，递归的实现方式
      *
      * @param arr
      * @param value
@@ -57,7 +57,7 @@ public class SearchTest {
     }
 
     /**
-     * x 的平方根
+     * 2. x 的平方根
      * <p>
      * leetcode 69
      * <p>
@@ -99,7 +99,7 @@ public class SearchTest {
     }
 
     /**
-     * 求一个数的平方根，要求精确到小数点后6位
+     * 3. 求一个数的平方根，要求精确到小数点后6位
      *
      * @param x
      * @return

@@ -3,7 +3,7 @@ package _08_stack;
 import java.util.Stack;
 
 /**
- * 2.最小栈
+ * 4. 最小栈
  * <p>
  * LeetCode 155
  * <p>

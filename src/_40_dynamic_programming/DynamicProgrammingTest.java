@@ -36,6 +36,8 @@ public class DynamicProgrammingTest {
     }
 
     /**
+     * 1. 三角形最短路径
+     *
      * leetcode 120
      * 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。
      *
@@ -70,7 +72,7 @@ public class DynamicProgrammingTest {
     }
 
     /**
-     * 背包问题
+     * 2. 背包问题
      * 对于一组重量不同且不可分割的物品，放在限制重量的背包里，能放入最大的重量值是多少？
      *
      * @param items

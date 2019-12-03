@@ -88,7 +88,7 @@ public class StackPractice {
     }
 
     /**
-     * 2. 比较含退格的字符串
+     * 3. 比较含退格的字符串
      * <p>
      * LeetCode 844
      * <p>

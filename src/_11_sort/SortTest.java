@@ -11,6 +11,14 @@ public class SortTest {
         System.out.println(Arrays.toString(sortTest.selectionSort(a)));
     }
 
+    /**
+     * 1.1 冒泡排序
+     * <p>
+     * 只会操作两个相邻的数据进行比较，较大的往后移，一次冒泡至少会让一个元素移动到它该在的地方
+     *
+     * @param a
+     * @return
+     */
     public int[] bubbleSort(int[] a) {
         int length = a.length;
         if (length <= 1) return a;
@@ -29,6 +37,14 @@ public class SortTest {
         return a;
     }
 
+    /**
+     * 1.2 插入排序
+     * <p>
+     * 分成未排序区间和已排序区间，从未排序区间取数据，插入到已排序区间中合适的位置，保证已排序区间是有序的
+     *
+     * @param a
+     * @return
+     */
     public int[] insertionSort(int[] a) {
         int length = a.length;
         if (length <= 1) return a;
@@ -48,6 +64,14 @@ public class SortTest {
         return a;
     }
 
+    /**
+     * 1.3 选择排序
+     * <p>
+     * 也分为已排序区间和无排序区间，从无排序区间中找到最小的数据，插入到已排序区间的末尾
+     *
+     * @param a
+     * @return
+     */
     public int[] selectionSort(int[] a) {
         int length = a.length;
         if (length <= 1) return a;

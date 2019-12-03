@@ -3,7 +3,7 @@ package _08_stack;
 import java.util.Stack;
 
 /**
- * 用栈实现队列
+ * 2. 用栈实现队列
  * <p>
  * LeetCode 232
  * <p>

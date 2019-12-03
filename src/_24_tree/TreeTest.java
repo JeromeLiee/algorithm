@@ -41,7 +41,7 @@ public class TreeTest {
     }
 
     /**
-     * 二叉树查找，递归方式
+     * 5.1 二叉树查找，递归方式
      *
      * @param root
      * @param value
@@ -59,7 +59,7 @@ public class TreeTest {
     }
 
     /**
-     * 二叉树查找，循环方式
+     * 5.2 二叉树查找，循环方式
      *
      * @param root
      * @param value
@@ -80,7 +80,7 @@ public class TreeTest {
     }
 
     /**
-     * 二叉树的插入
+     * 6. 二叉树的插入
      *
      * @param root
      * @param value
@@ -105,7 +105,7 @@ public class TreeTest {
     }
 
     /**
-     * 二叉树的最大深度
+     * 7. 二叉树的最大深度
      * <p>
      * LeetCode 104
      * <p>
@@ -162,7 +162,7 @@ public class TreeTest {
     }
 
     /**
-     * 验证二叉搜索树
+     * 8. 验证二叉搜索树
      * <p>
      * LeetCode 98
      * <p>

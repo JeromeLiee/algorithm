@@ -87,7 +87,7 @@ public class LinkedList {
     }
 
     /**
-     * 1.单链表反转
+     * 1.1 单链表反转 循环实现
      * <p>
      * LeetCode 206
      *
@@ -107,7 +107,7 @@ public class LinkedList {
     }
 
     /**
-     * 单链表反转递归实现
+     * 1.2 单链表反转 递归实现
      *
      * @param list
      * @return

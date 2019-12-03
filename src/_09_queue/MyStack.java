@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 用队列实现栈
+ * 1. 用队列实现栈
  * <p>
  * LeetCode 225
  * <p>

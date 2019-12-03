@@ -19,7 +19,7 @@ public class TreeTest {
     }
 
     /**
-     * 二叉树的前序遍历
+     * 1. 二叉树的前序遍历
      * <p>
      * LeetCode 144
      *
@@ -40,7 +40,7 @@ public class TreeTest {
     }
 
     /**
-     * 二叉树的中序遍历
+     * 2. 二叉树的中序遍历
      * <p>
      * LeetCode 94
      *
@@ -61,7 +61,7 @@ public class TreeTest {
     }
 
     /**
-     * 二叉树的后序遍历
+     * 3. 二叉树的后序遍历
      * <p>
      * leetcode 154
      *
@@ -83,7 +83,7 @@ public class TreeTest {
 
 
     /**
-     * 二叉树的层次遍历
+     * 4. 二叉树的层次遍历
      * leetcode 102
      * <p>
      * 广度优先遍历

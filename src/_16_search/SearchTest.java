@@ -17,7 +17,7 @@ public class SearchTest {
     }
 
     /**
-     * 1.1 查找第一个值等于给定值的元素
+     * 4.1 查找第一个值等于给定值的元素
      * 代码简洁，但逻辑比较复杂
      *
      * @param arr
@@ -45,7 +45,7 @@ public class SearchTest {
     }
 
     /**
-     * 1.2 查找第一个值等于给定值的元素
+     * 4.2 查找第一个值等于给定值的元素
      * 逻辑简单清晰
      *
      * @param a
@@ -74,7 +74,7 @@ public class SearchTest {
     }
 
     /**
-     * 2. 查找最后一个值等于给定值的元素
+     * 5. 查找最后一个值等于给定值的元素
      *
      * @param arr
      * @param value
@@ -103,7 +103,7 @@ public class SearchTest {
     }
 
     /**
-     * 3. 查找第一个大于等于给定值的元素
+     * 6. 查找第一个大于等于给定值的元素
      *
      * @param arr
      * @param value
@@ -129,7 +129,7 @@ public class SearchTest {
     }
 
     /**
-     * 4. 查找最后一个小于等于给定值的元素
+     * 7. 查找最后一个小于等于给定值的元素
      *
      * @param arr
      * @param value
@@ -155,7 +155,7 @@ public class SearchTest {
     }
 
     /**
-     * 二分查找
+     * 8. 二分查找
      * <p>
      * LeetCode 704
      *
@@ -182,7 +182,7 @@ public class SearchTest {
     }
 
     /**
-     * 搜索旋转排序数组
+     * 9. 搜索旋转排序数组
      * <p>
      * LeetCode 33
      * <p>
