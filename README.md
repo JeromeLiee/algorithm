@@ -2,6 +2,11 @@
 
 题目后面对应的LeetCode题号
 
+### 数组
+
+1. [搜索二维数组Ⅰ](src/_05_array/Test.java) 74
+2. [搜索二维数组Ⅱ](src/_05_array/Test.java) 240
+
 ### 链表
 
 1. [单链表反转(循环和递归实现)](src/_07_linked/LinkedList.java) 206
