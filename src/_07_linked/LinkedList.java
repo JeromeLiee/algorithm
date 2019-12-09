@@ -1,5 +1,7 @@
 package _07_linked;
 
+import java.util.Stack;
+
 public class LinkedList {
 
     public static void main(String[] args) {
@@ -84,6 +86,19 @@ public class LinkedList {
         }
 
         System.out.println("------getMiddleNode------");
+
+        System.out.println("------printImmutableLinked-----");
+        ListNode node7 = new ListNode(1);
+        ListNode cur7 = node7;
+        for (int i = 2; i < 10; i++) {
+            ListNode temp = new ListNode(i);
+            cur7.next = temp;
+            cur7 = temp;
+        }
+//        linked.printImmutableLinked1(node7);
+//        linked.printImmutableLinked2(node7);
+        linked.printImmutableLinked3(node7);
+        System.out.println("------printImmutableLinked-----");
     }
 
     /**
@@ -409,6 +424,57 @@ public class LinkedList {
         if (node.next == null) return;
         node.val = node.next.val;
         node.next = node.next.next;
+    }
+
+    /**
+     * 11.1 逆序打印一个单链表
+     * 反转链表，会破坏原有链表的结构
+     *
+     * @param header
+     */
+    public void printImmutableLinked1(ListNode header) {
+        if (header == null) return;
+        ListNode pre = null;
+        ListNode cur = header;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        while (pre != null) {
+            System.out.println(pre.val);
+            pre = pre.next;
+        }
+    }
+
+    /**
+     * 11.2 逆序打印一个单链表
+     * 使用栈实现
+     */
+    public void printImmutableLinked2(ListNode header) {
+        if (header == null) return;
+        Stack<ListNode> stack = new Stack<>();
+        ListNode cur = header;
+        while (cur != null) {
+            stack.add(cur);
+            cur = cur.next;
+        }
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop().val);
+        }
+    }
+
+    /**
+     * 11.3 逆序打印一个单链表
+     * 递归实现，需要注意当链表太长可能会导致栈溢出
+     *
+     * @param header
+     */
+    public void printImmutableLinked3(ListNode header) {
+        if (header == null) return;
+        printImmutableLinked3(header.next);
+        System.out.println(header.val);
     }
 
     static class ListNode {

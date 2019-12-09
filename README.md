@@ -19,6 +19,7 @@
 8. [移除链表元素](src/_07_linked/LinkedList.java) 203
 9. [反转链表](src/_07_linked/LinkedList.java) 92
 10. [删除链表中的结点](src/_07_linked/LinkedList.java) 237
+11. [逆序打印一个单链表(反转链表、使用栈、递归3种方式)](src/_07_linked/LinkedList.java)
 
 ### 栈
 
@@ -59,7 +60,7 @@
 2. [二叉树的中序遍历](src/_23_tree/TreeTest.java) 94
 3. [二叉树的后序遍历](src/_23_tree/TreeTest.java) 174
 4. [二叉树的层次遍历](src/_23_tree/TreeTest.java) 102
-5. [二叉查找树的查找递归和循环两种实现方式)](src/_24_tree/TreeTest.java)
+5. [二叉查找树的查找(递归和循环两种实现方式)](src/_24_tree/TreeTest.java)
 6. [二叉查找树的插入](src/_24_tree/TreeTest.java)
 7. [二叉树的最大深度](src/_24_tree/TreeTest.java) 104
 8. [验证二叉搜索树](src/_24_tree/TreeTest.java) 98
@@ -68,3 +69,7 @@
 
 1. [三角形最短路径](src/_40_dynamic_programming/DynamicProgrammingTest.java) 120
 2. [背包问题](src/_40_dynamic_programming/DynamicProgrammingTest.java)
+
+### 字符串
+
+1. [空格替换](src/_41_string/StringTest.java)
