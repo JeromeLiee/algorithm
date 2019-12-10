@@ -64,6 +64,8 @@
 6. [二叉查找树的插入](src/_24_tree/TreeTest.java)
 7. [二叉树的最大深度](src/_24_tree/TreeTest.java) 104
 8. [验证二叉搜索树](src/_24_tree/TreeTest.java) 98
+9. [从前序与中序遍历序列构造二叉树](src/_24_tree/TreeTest.java) 105
+10. [从中序与后序遍历序列构造二叉树(实现暂有问题)](src/_24_tree/TreeTest.java) 106
 
 ### 动态规划
 

@@ -1,6 +1,7 @@
 package _24_tree;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class TreeTest {
@@ -38,6 +39,16 @@ public class TreeTest {
         System.out.println(treeTest.inOrderTraversal(root));
 
         System.out.println(treeTest.maxDepth(root));
+
+        System.out.println("---rebuildTree---");
+        int[] preOrder = {3,9,20,15,7};
+        int[] inOrder = {9,3,15,20,7};
+        int[] postOrder = {9,15,7,20,3};
+        TreeNode treeNode1 = treeTest.rebuildTree(preOrder, inOrder);
+        System.out.println(treeTest.inOrderTraversal(treeNode1).toString());
+        TreeNode treeNode2 = treeTest.rebuildTree2(inOrder, postOrder);
+        System.out.println(treeTest.inOrderTraversal(treeNode2).toString());
+        System.out.println("---rebuildTree---");
     }
 
     /**
@@ -182,6 +193,113 @@ public class TreeTest {
         boolean leftIsValidBST = isValidBSTHelper(node.left, min, node.val);
         boolean rightIsValidBST = isValidBSTHelper(node.right, node.val, max);
         return leftIsValidBST & rightIsValidBST;
+    }
+
+    /**
+     * 9. 从前序与中序遍历序列构造二叉树
+     *
+     * leetcode 105
+     *
+     * 根据一棵树的前序遍历与中序遍历构造二叉树。
+     * 注意:
+     * 你可以假设树中没有重复的元素。
+     *
+     * 例如，给出
+     *
+     * 前序遍历 preorder = [3,9,20,15,7]
+     * 中序遍历 inorder = [9,3,15,20,7]
+     * 返回如下的二叉树：
+     *
+     *     3
+     *    / \
+     *   9  20
+     *     /  \
+     *    15   7
+     *
+     * @param preorder
+     * @param inorder
+     * @return
+     */
+    public TreeNode rebuildTree(int[] preorder, int[] inorder) {
+        if (preorder == null || preorder.length == 0 || inorder == null || inorder.length == 0) {
+            return null;
+        }
+
+        this.preorder = preorder;
+        for (int i = 0; i < inorder.length; i++) {
+            indexMap.put(inorder[i], i);
+        }
+        return realRebuildTree(0, inorder.length - 1);
+    }
+
+    private int rootIndex;
+    private int[] preorder;
+    private HashMap<Integer, Integer> indexMap = new HashMap<>();
+
+    // 分成左右子树然后用递归去进行重建
+    private TreeNode realRebuildTree(int start, int end) {
+        if (start > end) return null;
+        int rootValue = preorder[rootIndex++];
+        TreeNode root = new TreeNode(rootValue);
+
+        int index = indexMap.get(rootValue);
+        root.left = realRebuildTree(start, index - 1);
+        root.right = realRebuildTree(index + 1, end);
+        return root;
+    }
+
+    /**
+     * 10. 从中序与后序遍历序列构造二叉树
+     *
+     * leetcode 106
+     *
+     * 根据一棵树的中序遍历与后序遍历构造二叉树。
+     *
+     * 注意:
+     * 你可以假设树中没有重复的元素。
+     *
+     * 例如，给出
+     *
+     * 中序遍历 inorder = [9,3,15,20,7]
+     * 后序遍历 postorder = [9,15,7,20,3]
+     * 返回如下的二叉树：
+     *
+     *     3
+     *    / \
+     *   9  20
+     *     /  \
+     *    15   7
+     *
+     * @param inorder
+     * @param postorder
+     * @return
+     */
+    public TreeNode rebuildTree2(int[] inorder, int[] postorder) {
+        if (inorder == null || inorder.length == 0 || postorder == null || postorder.length == 0) {
+            return null;
+        }
+
+        this.postorder = postorder;
+        rootIndex = postorder.length - 1;
+        for (int i = 0; i < inorder.length; i++) {
+            indexMap.put(inorder[i], i);
+        }
+        return realRebuildTree2(0, inorder.length - 1);
+    }
+
+    private int[] postorder;
+
+    private TreeNode realRebuildTree2(int start, int end) {
+        if (start > end) {
+            return null;
+        }
+        int rootValue = postorder[rootIndex--];
+        TreeNode root = new TreeNode(rootValue);
+
+        int index = indexMap.get(rootValue);
+        root.right = realRebuildTree2(index + 1, end - 1);
+        root.left = realRebuildTree2(start, index - 1);
+        return root;
     }
 
     public static class TreeNode {
