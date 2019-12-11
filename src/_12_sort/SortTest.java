@@ -27,6 +27,10 @@ public class SortTest {
      * <p>
      * 终止条件：
      * p >= r 不用再继续分解
+     * <p>
+     * 时间复杂度：O(nlogn)
+     * 空间复杂度：O(n)，申请的最大临时空间就是整个数组的大小
+     * 是否稳定排序算法：合并时相同的元素前后顺序不变，所以是稳定的
      */
     public void mergeSort(int[] a) {
         realMergeSort(a, 0, a.length - 1);
@@ -87,6 +91,10 @@ public class SortTest {
      * <p>
      * 终止条件为：
      * p >= r
+     * <p>
+     * 时间复杂度：最好O(nlogn)，最坏(n^2)，大部分时间O(nlogn)
+     * 空间复杂度：O(1)
+     * 是否稳定性排序算法：否，因为在分区的时候，已经交换了元素
      *
      * @param a
      */
@@ -107,6 +115,10 @@ public class SortTest {
         int pivotValue = a[end];
         int i = start;
         int j = start;
+        // 类似选择排序，分成a[start,i-1]和a[i,end]两个区间
+        // 前者区间(可称之为"已排序区间")元素都比pivotValue小，每次从后者区间(可称之为"未排序区间")取元素与pivotValue比较
+        // 小于pivotValue的元素则放在a[start,i-1]区间的末尾
+        // 最后让未排序区间第一个元素和pivot元素交换，此时分区元素的前面都比其小，后面都比其大
         for (; j < end; j++) {
             if (a[j] < pivotValue) {
                 int temp = a[i];
@@ -139,7 +151,10 @@ public class SortTest {
      * 你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
      */
     public int findKthLargest(int[] nums, int k) {
-        return nums[partitionArr(nums, 0, nums.length - 1, nums.length + 1 - k)];
+        // 第k大，实质上是第length+1-k小
+        // 例如第1大，length为6，则是第6小
+        int index = partitionArr(nums, 0, nums.length - 1, nums.length + 1 - k);
+        return nums[index];
     }
 
     private int partitionArr(int[] a, int start, int end, int k) {
@@ -156,7 +171,10 @@ public class SortTest {
         }
         a[j] = a[i];
         a[i] = pivotValue;
+        // i是索引，从0开始，所以i+1等于k，则说明第i个索引的元素就是需要找的元素
         if (i + 1 == k) return i;
+        // i+1小于k，则说明需要寻找的元素在右边
+        // 否则在左边
         if (i + 1 < k) {
             return partitionArr(a, i + 1, end, k);
         } else {
