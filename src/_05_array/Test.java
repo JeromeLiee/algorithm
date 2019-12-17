@@ -18,6 +18,10 @@ public class Test {
         System.out.println("1-searchMatrix:" + test.searchMatrix(arrays, 3));
         System.out.println("1-searchMatrix:" + test.searchMatrix(arrays, 30));
         System.out.println("1-searchMatrix:" + test.searchMatrix(arrays2, 2));
+
+//        int[] array3 = {4, 5, 6, 7, 0, 1, 2};
+        int[] array3 = {1,3,5};
+        System.out.println(test.search(array3, 3));
     }
 
 
@@ -136,4 +140,60 @@ public class Test {
         return false;
     }
 
+    /**
+     * 搜索旋转排序数组
+     * <p>
+     * LeetCode 33
+     * <p>
+     * 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
+     * <p>
+     * ( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
+     * <p>
+     * 搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。
+     * <p>
+     * 你可以假设数组中不存在重复的元素。
+     * <p>
+     * 你的算法时间复杂度必须是 O(log n) 级别。
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int search(int[] nums, int target) {
+        if (nums == null || nums.length == 0) return -1;
+        return realSearch(nums, 0, nums.length - 1, target);
+    }
+
+    private int realSearch(int[] nums, int low, int high, int target) {
+        if (low > high) return -1;
+        int middle = low + ((high - low) >> 1);
+        if (nums[middle] >= nums[low]) { // low ~ middle 是有序的
+            if (target >= nums[low] && target <= nums[middle]) { // target在low ~ middle这个有序区间内
+                return binarySearch(nums, low, middle, target);
+            } else { // 在middle + 1 ~ high这个旋转数组里
+                return realSearch(nums, middle + 1, high, target);
+            }
+        } else { // middle ~ high 是有序的
+            if (target <= nums[high] && target >= nums[middle]) { // target在middle ~ high这个有序区间内
+                return binarySearch(nums, middle, high, target);
+            } else {
+                return realSearch(nums, low, middle - 1, target);
+            }
+        }
+    }
+
+    private int binarySearch(int[] nums, int low, int high, int target) {
+        int middle;
+        while (low <= high) {
+            middle = low + ((high - low) >> 1);
+            if (target > nums[middle]) {
+                low = middle + 1;
+            } else if (target < nums[middle]) {
+                high = middle - 1;
+            } else {
+                return middle;
+            }
+        }
+        return -1;
+    }
 }
