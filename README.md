@@ -76,3 +76,7 @@
 ### 字符串
 
 1. [空格替换](src/_41_string/StringTest.java)
+
+### 位运算
+
+1. [位1的个数](src/_42_other/OtherTest.java) 191

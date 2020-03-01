@@ -13,7 +13,7 @@ public class RecursionTest {
     }
 
     /**
-     * 1. 爬楼梯
+     * 1.1 爬楼梯(递归实现)
      * <p>
      * LeetCode 70
      * <p>
@@ -58,6 +58,11 @@ public class RecursionTest {
 
     private Map<Integer, Integer> countMap = new HashMap<>();
 
+    /**
+     * 1.2 爬楼梯(循环实现)
+     * @param n
+     * @return
+     */
     public int climbStairs2(int n) {
         if (n == 1) return 1;
         if (n == 2) return 2;
