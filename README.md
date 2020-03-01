@@ -77,6 +77,8 @@
 
 1. [空格替换](src/_41_string/StringTest.java)
 
-### 位运算
+### 其它
 
 1. [位1的个数](src/_42_other/OtherTest.java) 191
+2. [数值的整数次方(存在问题)](src/_42_other/OtherTest.java) 16、50
+3. [打印从1到最大的n位数](src/_42_other/OtherTest.java) 17
