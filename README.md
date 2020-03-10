@@ -21,6 +21,7 @@
 9. [反转链表](src/_07_linked/LinkedList.java) 92
 10. [删除链表中的结点](src/_07_linked/LinkedList.java) 237
 11. [逆序打印一个单链表(反转链表、使用栈、递归3种方式)](src/_07_linked/LinkedList.java)
+12. [链表中倒数第k个节点](src/_07_linked/LinkedList.java) 22
 
 ### 栈
 
