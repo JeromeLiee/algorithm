@@ -82,3 +82,4 @@
 1. [位1的个数](src/_42_other/OtherTest.java) 191
 2. [数值的整数次方(存在问题)](src/_42_other/OtherTest.java) 16、50
 3. [打印从1到最大的n位数](src/_42_other/OtherTest.java) 17
+4. [调整数组顺序使奇数位于偶数前面](src/_42_other/OtherTest.java) 21

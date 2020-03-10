@@ -118,4 +118,41 @@ public class OtherTest {
         return nums;
     }
 
+    /**
+     * 4. 调整数组顺序使奇数位于偶数前面
+     * <p>
+     * leetcode 21
+     * <p>
+     * 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+     *
+     * @param nums
+     * @return
+     */
+    public int[] exchange(int[] nums) {
+        if (nums == null || nums.length <= 1) return nums;
+        int length = nums.length;
+        int start = 0;
+        int end = length - 1;
+        while (start < end) {
+            // 前指针为偶数，后指针为奇数，交换且移动指针
+            if ((nums[start] & 0x1) == 0 && (nums[end] & 0x1) == 1) {
+                int temp = nums[start];
+                nums[start] = nums[end];
+                nums[end] = temp;
+                start++;
+                end--;
+            } else {
+                // 前指针为奇数，移动前指针
+                if ((nums[start] & 0x1) == 1) {
+                    start++;
+                }
+                // 后指针为奇数，移动后指针
+                if ((nums[end] & 0x1) == 0) {
+                    end--;
+                }
+            }
+        }
+        return nums;
+    }
+
 }
