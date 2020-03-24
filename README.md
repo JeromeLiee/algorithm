@@ -69,6 +69,7 @@
 9. [从前序与中序遍历序列构造二叉树](src/_24_tree/TreeTest.java) 105
 10. [从中序与后序遍历序列构造二叉树(实现暂有问题)](src/_24_tree/TreeTest.java) 106
 11. [树的子结构](src/_24_tree/TreeTest.java) 26
+12. [二叉树的镜像，又称翻转二叉树](src/_24_tree/TreeTest.java) 27、226
 
 ### 动态规划
 
