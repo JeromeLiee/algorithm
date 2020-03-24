@@ -41,14 +41,24 @@ public class TreeTest {
         System.out.println(treeTest.maxDepth(root));
 
         System.out.println("---rebuildTree---");
-        int[] preOrder = {3,9,20,15,7};
-        int[] inOrder = {9,3,15,20,7};
-        int[] postOrder = {9,15,7,20,3};
+        int[] preOrder = {3, 9, 20, 15, 7};
+        int[] inOrder = {9, 3, 15, 20, 7};
+        int[] postOrder = {9, 15, 7, 20, 3};
         TreeNode treeNode1 = treeTest.rebuildTree(preOrder, inOrder);
         System.out.println(treeTest.inOrderTraversal(treeNode1).toString());
         TreeNode treeNode2 = treeTest.rebuildTree2(inOrder, postOrder);
         System.out.println(treeTest.inOrderTraversal(treeNode2).toString());
         System.out.println("---rebuildTree---");
+
+        TreeNode rootA = new TreeNode(2);
+        TreeNode rootA1 = new TreeNode(3);
+        TreeNode rootA2 = new TreeNode(2);
+        TreeNode rootA3 = new TreeNode(1);
+        rootA.left = rootA1;
+        rootA.right = rootA2;
+        rootA1.left = rootA3;
+        TreeNode rootB = new TreeNode(1);
+        System.out.println("isSubStructure=" + treeTest.isSubStructure(rootA, rootB));
     }
 
     /**
@@ -301,6 +311,50 @@ public class TreeTest {
         root.left = realRebuildTree2(start, index - 1);
         return root;
     }
+
+    /**
+     * 11. 树的子结构
+     *
+     * leetcode 26
+     *
+     * 输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)
+     *
+     * B是A的子结构， 即 A中有出现和B相同的结构和节点值。
+     *
+     * @param A
+     * @param B
+     * @return
+     */
+    public boolean isSubStructure(TreeNode A, TreeNode B) {
+        if (A == null || B == null) return false;
+        boolean result = false;
+        if (A.val == B.val) {
+            result = realIsSubStructure(A, B);
+        }
+        if (!result) {
+            result = isSubStructure(A.left, B);
+        }
+        if (!result) {
+            result = isSubStructure(A.right, B);
+        }
+        return result;
+    }
+
+    private boolean realIsSubStructure(TreeNode treeA, TreeNode treeB) {
+        if (treeB == null) {
+            return true;
+        }
+        if (treeA == null) {
+            return false;
+        }
+        if (treeA.val != treeB.val) {
+            return false;
+        }
+        boolean leftResult = realIsSubStructure(treeA.left, treeB.left);
+        boolean rightResult = realIsSubStructure(treeA.right, treeB.right);
+        return leftResult && rightResult;
+    }
+
 
     public static class TreeNode {
         int val;
