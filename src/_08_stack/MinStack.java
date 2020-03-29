@@ -49,6 +49,7 @@ public class MinStack {
             minValueStack.push(x);
             return;
         }
+        // 必须是小于等于 否则存入多个最小值，然后pop的时候会出问题
         if (x <= minValueStack.peek()){
             minValueStack.push(x);
         }
