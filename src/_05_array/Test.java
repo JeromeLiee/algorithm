@@ -1,5 +1,9 @@
 package _05_array;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -20,8 +24,12 @@ public class Test {
         System.out.println("1-searchMatrix:" + test.searchMatrix(arrays2, 2));
 
 //        int[] array3 = {4, 5, 6, 7, 0, 1, 2};
-        int[] array3 = {1,3,5};
+        int[] array3 = {1, 3, 5};
         System.out.println(test.search(array3, 3));
+
+        System.out.println("----------------");
+        int[][] array4 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+        System.out.println(Arrays.toString(test.spiralOrder(array4).toArray()));
     }
 
 
@@ -53,6 +61,9 @@ public class Test {
 
     /**
      * 1. 搜索二维数组Ⅰ
+     * <p>
+     * leetcode 74
+     * <p>
      * m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
      * * 每行中的整数从左到右按升序排列。
      * * 每行的第一个整数大于前一行的最后一个整数。
@@ -61,8 +72,6 @@ public class Test {
      * 5 6 7 8
      * 9 10 11 12
      * 13 14 15 16
-     * <p>
-     * leetcode 74
      * <p>
      * 有序数组，使用二分查找
      * 时间复杂度：O(log(m*n))
@@ -105,6 +114,8 @@ public class Test {
     /**
      * 2. 搜索二维数组Ⅱ
      * <p>
+     * LeetCode 240
+     * <p>
      * 矩阵的特点如下：
      * 每行的元素从左到右升序排列。
      * 每列的元素从上到下升序排列。
@@ -113,8 +124,6 @@ public class Test {
      * 2 4 9 12
      * 4 7 10 13
      * 6 8 11 15
-     * <p>
-     * LeetCode 240
      * <p>
      * 左上角或右下角找个点
      *
@@ -195,5 +204,144 @@ public class Test {
             }
         }
         return -1;
+    }
+
+    /**
+     * 4. 螺旋矩阵（顺时针打印矩阵）
+     *
+     * LeetCode 54
+     *
+     * 给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。
+     *
+     * 示例 1:
+     *
+     * 输入:
+     * [
+     *  [ 1, 2, 3 ],
+     *  [ 4, 5, 6 ],
+     *  [ 7, 8, 9 ]
+     * ]
+     * 输出: [1,2,3,6,9,8,7,4,5]
+     * 示例 2:
+     *
+     * 输入:
+     * [
+     *   [1, 2, 3, 4],
+     *   [5, 6, 7, 8],
+     *   [9,10,11,12]
+     * ]
+     * 输出: [1,2,3,4,8,12,11,10,9,5,6,7]
+     *
+     * @param matrix
+     * @return
+     */
+    public List<Integer> spiralOrder(int[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return new ArrayList<>();
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        List<Integer> list = new ArrayList<>(rows * columns);
+        int left = 0;
+        int top = 0;
+        int right = columns - 1;
+        int bottom = rows - 1;
+        while (true) {
+            // 从左到右
+            for (int i = left; i <= right; i++) {
+                list.add(matrix[top][i]);
+            }
+            top++;
+            if (top > bottom) break;
+
+            // 从上到下
+            for (int i = top; i <= bottom; i++) {
+                list.add(matrix[i][right]);
+            }
+            right--;
+            if (left > right) break;
+
+            // 从右到左
+            for (int i = right; i >= left; i--) {
+                list.add(matrix[bottom][i]);
+            }
+            bottom--;
+            if (top > bottom) break;
+
+            // 从下到上
+            for (int i = bottom; i >= top; i--) {
+                list.add(matrix[i][left]);
+            }
+            left++;
+            if (left > right) break;
+        }
+        return list;
+    }
+
+    /**
+     * 5. 顺时针打印矩阵
+     *
+     * leetcode 面试题29
+     *
+     * 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
+     *
+     *  
+     *
+     * 示例 1：
+     *
+     * 输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+     * 输出：[1,2,3,6,9,8,7,4,5]
+     * 示例 2：
+     *
+     * 输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+     * 输出：[1,2,3,4,8,12,11,10,9,5,6,7]
+     *  
+     *
+     * 限制：
+     *
+     * 0 <= matrix.length <= 100
+     * 0 <= matrix[i].length <= 100
+     *
+     * @param matrix
+     * @return
+     */
+    public int[] spiralOrder2(int[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return new int[0];
+        int rows = matrix.length;
+        int columns = matrix[0].length;
+        int[] result = new int[rows * columns];
+        int index = 0;
+        int left = 0;
+        int top = 0;
+        int right = columns - 1;
+        int bottom = rows - 1;
+        while (true) {
+            // 从左到右
+            for (int i = left; i <= right; i++) {
+                result[index++] = matrix[top][i];
+            }
+            top++;
+            if (top > bottom) break;
+
+            // 从上到下
+            for (int i = top; i <= bottom; i++) {
+                result[index++] = matrix[i][right];
+            }
+            right--;
+            if (left > right) break;
+
+            // 从右到左
+            for (int i = right; i >= left; i--) {
+                result[index++] = matrix[bottom][i];
+            }
+            bottom--;
+            if (top > bottom) break;
+
+            // 从下到上
+            for (int i = bottom; i >= top; i--) {
+                result[index++] = matrix[i][left];
+            }
+            left++;
+            if (left > right) break;
+        }
+        return result;
     }
 }
