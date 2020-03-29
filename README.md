@@ -31,6 +31,9 @@
 2. [用栈实现队列](src/_08_stack/MyQueue.java) 232
 3. [比较含退格的字符串](src/_08_stack/StackPractice.java) 844
 4. [最小栈](src/_08_stack/MinStack.java) 155
+5. [基本计算器((暂未实现))](src/_08_stack/StackPractice.java) 224
+6. [下一个更大元素((暂未实现))](src/_08_stack/StackPractice.java) 496
+7. [栈的压入、弹出序列（验证栈顺序）](src/_08_stack/StackPractice.java) 面试题31、946
 
 ### 队列
 
