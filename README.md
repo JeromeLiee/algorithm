@@ -86,6 +86,11 @@
 
 1. [空格替换](src/_41_string/StringTest.java)
 
+### 回溯
+
+1. [8皇后问题](src/_39_backtracking/BacktrackingTest.java)
+2. [二叉树中和为某一值的路径](src/_39_backtracking/BacktrackingTest.java)
+
 ### 其它
 
 1. [位1的个数](src/_42_other/OtherTest.java) 191

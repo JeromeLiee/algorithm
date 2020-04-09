@@ -1,5 +1,8 @@
 package _39_backtracking;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class BacktrackingTest {
 
     public static void main(String[] args) {
@@ -10,7 +13,7 @@ public class BacktrackingTest {
     int[] result = new int[8];// 全局或成员变量, 下标表示行, 值表示 queen 存储在哪一列
 
     /**
-     * 8皇后问题
+     * 1. 8皇后问题
      *
      * @param row
      */
@@ -53,5 +56,43 @@ public class BacktrackingTest {
         }
         System.out.println();
     }
+
+    /**
+     * 2. 二叉树中和为某一值的路径
+     *
+     * leetcode 面试题34
+     *
+     * @param root
+     * @param sum
+     * @return
+     */
+    LinkedList<List<Integer>> res = new LinkedList<>();
+    LinkedList<Integer> path = new LinkedList<>();
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        realPathSum(root, sum);
+        return res;
+    }
+
+    private void realPathSum(TreeNode root, int target) {
+        if (root == null) {
+            return;
+        }
+        path.add(root.val);
+        target = target - root.val;
+        if (target == 0 && root.left == null && root.right == null) {
+            res.add(new LinkedList<>(path));
+        }
+        realPathSum(root.left, target);
+        realPathSum(root.right, target);
+        path.removeLast();
+    }
+
+
+    public static class TreeNode {
+          int val;
+          TreeNode left;
+          TreeNode right;
+          TreeNode(int x) { val = x; }
+      }
 
 }
