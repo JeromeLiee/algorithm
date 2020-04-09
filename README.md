@@ -89,7 +89,7 @@
 ### 回溯
 
 1. [8皇后问题](src/_39_backtracking/BacktrackingTest.java)
-2. [二叉树中和为某一值的路径](src/_39_backtracking/BacktrackingTest.java)
+2. [二叉树中和为某一值的路径](src/_39_backtracking/BacktrackingTest.java) 113、面试题34
 
 ### 其它
 
